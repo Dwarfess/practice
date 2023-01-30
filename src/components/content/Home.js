@@ -42,7 +42,7 @@ const Home = ({
 const DefaultHomeWrapper = styled.div``;
 const SecondHomeWrapper = styled.div`
   h1 {
-    font-size: 100px;
+    font-size: 80px;
   }
 `
 const SimpleHomeWrapper = styled.div`
