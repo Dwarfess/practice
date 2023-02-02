@@ -17,7 +17,7 @@ const Wrapper = () => {
       <ThemaSwitcher handlerTheme={setTheme}/>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route index element={<Home />} />
+          <Route index element={<Home theme={theme}/>} />
           <Route path="pageOne" element={<PageOne />} />
           <Route path="pageTwo" element={<PageTwo />} />
           <Route path="pageThree" element={<PageThree />} />
