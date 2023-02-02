@@ -4,12 +4,12 @@ import { colors } from '../../styles.js';
 const { firstTextColor, secondTextColor, firstBackgroudColor, thirdTextColor } = colors;
 
 const Home = ({
-  theme = 'first'
+  theme
 }) => {
   const themeMap = {
     first: DefaultHomeWrapper,
-    second: DefaultHomeWrapper,
-    third: DefaultHomeWrapper
+    second: SimpleHomeWrapper,
+    third: FirstHomeWrapper
   };
 
   const HomeWrapper = themeMap[theme];
@@ -63,6 +63,69 @@ const SimpleHomeWrapper = styled.div`
       border: 1px solid ${thirdTextColor};
     }
   }
+`;
+
+const FirstHomeWrapper = styled.div`
+  font-size: 20px;
+  background: ${firstBackgroudColor};
+
+  border-top: 1px solid ${secondTextColor};
+  padding: 20px;
+  height: calc(100vh - 61px);
+  
+  background-image: url('/home3.jpg');
+  background-size: cover;
+
+  .img_1 {
+    width: 50%;
+    height: 50%;
+    margin: 50px auto;
+    background-image: url('/home3.jpg');
+    background-size: cover;
+    border:1px solid red;
+  }
+
+  h1 {
+    width: 60%;
+    margin: 150px auto;
+    font-size: 80px;
+    color: ${firstTextColor};
+  }
+
+  .about {
+    height: 80%;
+    position: absolute;
+    top: 15%; 
+
+    &.applications {
+      width: 40%;
+      left: 15%;
+      background: rgb(102, 165, 173, .3);
+      color: ${firstTextColor};
+    }
+
+    &.games {
+      width: 25%;
+      left: 60%;
+      background: rgb(218, 164, 172, .3);
+      color: ${thirdTextColor};
+    }
+
+    p {
+      text-align: justify;
+      padding: 50px;
+      position: absolute;
+      bottom: 0;
+    }
+  }
+/* 
+  .about2 {
+    height: 80%;
+    background: rgb(218,164,172, .3);
+    position: absolute;
+    top: 15%;
+    left: 60%; 
+  } */
 `;
 
 export default Home;
