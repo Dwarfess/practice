@@ -40,7 +40,11 @@ const Home = ({
 };
 
 const DefaultHomeWrapper = styled.div``;
-
+const SecondHomeWrapper = styled.div`
+  h1 {
+    font-size: 80px;
+  }
+`
 const SimpleHomeWrapper = styled.div`
   h1 {
     color: red;
