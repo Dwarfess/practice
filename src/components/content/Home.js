@@ -1,13 +1,13 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
-import { colors } from '../../styles.js';
-import { fontSize } from '../../styles.js';
-const { firstTextColor, secondTextColor, firstBackgroudColor, thirdTextColor } =
-  colors;
-const {fontSizeH1, fontSizeH2, fontSizeH3, fontSizeH4, fontSizeH5, fontSizeH6, fontSizeFirstLetter, fontSizeText} = fontSize;
+import { colors, fontSize, pageSize } from '../../styles.js';
+
+const { firstTextColor, secondTextColor, firstBackgroudColor, thirdTextColor } = colors;
+const { fontSizeH1, fontSizeFirstLetter, fontSizeText } = fontSize;
+const { mainPageHight } = pageSize;
 
 
-const Home = ({ theme = 'first' }) => {
+const Home = ({ theme }) => {
 
   const themeMap = {
     first: SecondHomeWrapper,
@@ -46,7 +46,6 @@ const Home = ({ theme = 'first' }) => {
   );
 };
 
-const DefaultHomeWrapper = styled.div``;
 const SecondHomeWrapper = styled.div`
     h1 {
       margin: ${fontSizeH1};
@@ -110,57 +109,48 @@ const SimpleHomeWrapper = styled.div`
 `;
 
 const TanyaHomeWrapper = styled.div`
-// display: flex;
-// flex-direction: colum;  
-// justify-content: space-between;
   background-image: url("/fon.jpg");
   padding-bottom: 100px;  
   text-align:center;
 
-h1 {
-  color: #367db1;
-  text-align: center;
-  text-decoration: overline;
-  padding: 40px 0px 50px 0px;
+  h1 {
+    color: #367db1;
+    text-align: center;
+    text-decoration: overline;
+    padding: 40px 0px 50px 0px;
   }
 
-p {
-  text-align: justify;
-  color: #424c51;
-  line-height: 30px;
-}
+  p {
+    text-align: justify;
+    color: #424c51;
+    line-height: 30px;
+  }
 
-.about {  
-  font-size: 18px; 
-    
-
-    &.applications {    
-      display: inline-block;
-      width: 30%;      
-      margin-right: 55px;
-      padding: 15px;
-      border: 3px dotted #45928a;
-      border-radius: 5px;
-      box-shadow: yellow;
-      box-shadow: 10px 11px 13px #4084a2;
+  .about {  
+    font-size: 18px; 
       
-      //flex-grow: 2;
-      //width: 50%;
-    }
-    &.games {
-      display: inline-block;
-      width: 30%;       
-      padding: 15px;
-      border: 3px dotted #45928a;
-      border-radius: 5px;
-      box-shadow: yellow;
-      box-shadow: 10px 11px 13px #4084a2;
-      
-      // flex-grow: 1;
-      // width: 50%;
-    }
 
-}
+      &.applications {    
+        display: inline-block;
+        width: 30%;      
+        margin-right: 55px;
+        padding: 15px;
+        border: 3px dotted #45928a;
+        border-radius: 5px;
+        box-shadow: yellow;
+        box-shadow: 10px 11px 13px #4084a2;
+      }
+
+      &.games {
+        display: inline-block;
+        width: 30%;       
+        padding: 15px;
+        border: 3px dotted #45928a;
+        border-radius: 5px;
+        box-shadow: yellow;
+        box-shadow: 10px 11px 13px #4084a2;
+      }
+  }
 `
 const FirstHomeWrapper = styled.div`
   font-size: 20px;
@@ -168,7 +158,7 @@ const FirstHomeWrapper = styled.div`
 
   border-top: 1px solid ${secondTextColor};
   padding: 20px;
-  height: calc(100vh - 61px);
+  height: ${mainPageHight};
   
   background-image: url('/home3.jpg');
   background-size: cover;
@@ -215,13 +205,5 @@ const FirstHomeWrapper = styled.div`
       bottom: 0;
     }
   }
-/* 
-  .about2 {
-    height: 80%;
-    background: rgb(218,164,172, .3);
-    position: absolute;
-    top: 15%;
-    left: 60%; 
-  } */
 `;
 export default Home;

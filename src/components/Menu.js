@@ -9,7 +9,7 @@ const Menu = () => {
     <NavWrapper>
       <nav>
         <NavLink to='/'>Home</NavLink>
-        <NavLink to='/pageOne'>Page One</NavLink>
+        <NavLink to='/constructor'>Constructor</NavLink>
         <NavLink to='/pageTwo'>Page Two</NavLink>
         <NavLink to='/pageThree'>Page Three</NavLink>
       </nav>
