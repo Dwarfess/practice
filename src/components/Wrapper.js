@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import MainLayout from './MainLayout';
 import Home from './content/Home';
-import PageOne from './content/PageOne';
+import ConstructorPage from './constructor/ConstructorPage';
 import PageTwo from './content/PageTwo';
 import PageThree from './content/PageThree';
 import NotFound from './content/NotFound';
@@ -18,7 +18,7 @@ const Wrapper = () => {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home theme={theme}/>} />
-          <Route path="pageOne" element={<PageOne />} />
+          <Route path="constructor" element={<ConstructorPage />} />
           <Route path="pageTwo" element={<PageTwo />} />
           <Route path="pageThree" element={<PageThree />} />
           <Route path="*" element={<NotFound />} />

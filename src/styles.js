@@ -5,7 +5,7 @@ export const colors = {
 
     firstBackgroudColor: '#66a5ad',
     secondBackgroundColor: '#003b46'
-}
+};
 
 export const fontSize = {
     fontSizeH1: '50px',
@@ -16,4 +16,8 @@ export const fontSize = {
     fontSizeH6: '20px',
     fontSizeFirstLetter: '30px',
     fontSizeText: '18px'
-}
+};
+
+export const pageSize = {
+    mainPageHight: 'calc(100vh - 61px)'
+};
