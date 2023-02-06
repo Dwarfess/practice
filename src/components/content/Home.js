@@ -4,15 +4,22 @@ import { colors } from '../../styles.js';
 import { fontSize } from '../../styles.js';
 const { firstTextColor, secondTextColor, firstBackgroudColor, thirdTextColor } =
   colors;
-const {fontSizeH1, fontSizeH2, fontSizeH3, fontSizeH4, fontSizeH5, fontSizeH6, fontSizeFirstLetter, fontSizeText} = fontSize;
-
+const {
+  fontSizeH1,
+  fontSizeH2,
+  fontSizeH3,
+  fontSizeH4,
+  fontSizeH5,
+  fontSizeH6,
+  fontSizeFirstLetter,
+  fontSizeText,
+} = fontSize;
 
 const Home = ({ theme = 'first' }) => {
-
   const themeMap = {
     first: SecondHomeWrapper,
     second: SimpleHomeWrapper,
-    third: FirstHomeWrapper
+    third: FirstHomeWrapper,
   };
 
   const HomeWrapper = themeMap[theme];
@@ -48,24 +55,25 @@ const Home = ({ theme = 'first' }) => {
 
 const DefaultHomeWrapper = styled.div``;
 const SecondHomeWrapper = styled.div`
-    h1 {
-      margin: ${fontSizeH1};
-      font-size: ${fontSizeH1};
-      color: ${firstTextColor};
+  h1 {
+    margin: ${fontSizeH1};
+    font-size: ${fontSizeH1};
+    color: ${firstTextColor};
 
-      &:before {
-        content: '> > >';
-        margin-right: ${fontSizeH1};
-        color: red;
-      }
-      
-      &:after {
-        content: '< < <';
-        margin-left: ${fontSizeH1};
-        color: red;
-      }
+    &:before {
+      content: '> > >';
+      margin-right: ${fontSizeH1};
+      color: red;
     }
-    .about p {
+
+    &:after {
+      content: '< < <';
+      margin-left: ${fontSizeH1};
+      color: red;
+    }
+  }
+  .about {
+    p {
       max-width: 50%;
       margin: 30px auto;
       padding: 5px;
@@ -84,7 +92,6 @@ const SecondHomeWrapper = styled.div`
         box-shadow: 0 0 20px green;
       }
     }
-
   }
 `;
 const SimpleHomeWrapper = styled.div`
@@ -118,7 +125,7 @@ const FirstHomeWrapper = styled.div`
   border-top: 1px solid ${secondTextColor};
   padding: 20px;
   height: calc(100vh - 61px);
-  
+
   background-image: url('/home3.jpg');
   background-size: cover;
 
@@ -128,7 +135,7 @@ const FirstHomeWrapper = styled.div`
     margin: 50px auto;
     background-image: url('/home3.jpg');
     background-size: cover;
-    border:1px solid red;
+    border: 1px solid red;
   }
 
   h1 {
@@ -141,19 +148,19 @@ const FirstHomeWrapper = styled.div`
   .about {
     height: 80%;
     position: absolute;
-    top: 15%; 
+    top: 15%;
 
     &.applications {
       width: 40%;
       left: 15%;
-      background: rgb(102, 165, 173, .3);
+      background: rgb(102, 165, 173, 0.3);
       color: ${firstTextColor};
     }
 
     &.games {
       width: 25%;
       left: 60%;
-      background: rgb(218, 164, 172, .3);
+      background: rgb(218, 164, 172, 0.3);
       color: ${thirdTextColor};
     }
 
@@ -164,7 +171,7 @@ const FirstHomeWrapper = styled.div`
       bottom: 0;
     }
   }
-/* 
+  /* 
   .about2 {
     height: 80%;
     background: rgb(218,164,172, .3);
