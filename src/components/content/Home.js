@@ -41,7 +41,7 @@ const Home = ({ theme = 'first' }) => {
           better and more powerful games that can be run in any
           standards-compliant web browser.
         </p>
-      </div>
+      </div>      
     </HomeWrapper>
   );
 };
@@ -114,53 +114,65 @@ const TanyaHomeWrapper = styled.div`
 // flex-direction: colum;  
 // justify-content: space-between;
   background-image: url("/fon.jpg");
-  padding-bottom: 100px;  
+  height: calc(100vh - 61px);   
   text-align:center;
 
-h1 {
-  color: #367db1;
-  text-align: center;
-  text-decoration: overline;
-  padding: 40px 0px 50px 0px;
+  h1 {
+    color: #367db1;
+    text-align: center;
+    text-decoration: overline;
+    padding: 40px 0px 50px 0px;
   }
 
-p {
-  text-align: justify;
-  color: #424c51;
-  line-height: 30px;
-}
-
-.about {  
-  font-size: 18px; 
+  
+  .about {  
+    font-size: 18px;
     
+      p {
+        text-align: justify;
+        color: #424c51;
+        line-height: 30px;
+      }    
 
-    &.applications {    
-      display: inline-block;
-      width: 30%;      
-      margin-right: 55px;
-      padding: 15px;
-      border: 3px dotted #45928a;
-      border-radius: 5px;
-      box-shadow: yellow;
-      box-shadow: 10px 11px 13px #4084a2;
-      
-      //flex-grow: 2;
-      //width: 50%;
-    }
-    &.games {
-      display: inline-block;
-      width: 30%;       
-      padding: 15px;
-      border: 3px dotted #45928a;
-      border-radius: 5px;
-      box-shadow: yellow;
-      box-shadow: 10px 11px 13px #4084a2;
-      
-      // flex-grow: 1;
-      // width: 50%;
-    }
+      &.applications {    
+        display: inline-block;
+        width: 30%;      
+        margin-right: 55px;
+        padding: 15px;
+        border: 3px dotted #45928a;
+        border-radius: 5px;
+        box-shadow: yellow;
+        box-shadow: 10px 11px 13px #4084a2;
+        
+        //flex-grow: 2;
+        //width: 50%;
+      }
+      &.games {
+        display: inline-block;
+        width: 30%;       
+        padding: 15px;
+        border: 3px dotted #45928a;
+        border-radius: 5px;
+        box-shadow: yellow;
+        box-shadow: 10px 11px 13px #4084a2;
 
-}
+      &::before {
+          content: "GAMES!";  
+          // top: 200px;
+          // left: 100px;
+          width: 100px;
+          height: 100px;
+          background-color: #5dd2c7; 
+          
+          &:hover {
+            color: red;
+            transform: scale(2, 0.5);
+          }
+        }
+        // flex-grow: 1;
+        // width: 50%;
+      }
+  }  
 `
 const FirstHomeWrapper = styled.div`
   font-size: 20px;
