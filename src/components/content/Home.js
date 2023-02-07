@@ -71,6 +71,7 @@ const SecondHomeWrapper = styled.div`
       border-radius: 5px;
       box-shadow: 3px 3px 15px ${firstBackgroudColor};
       font-size: ${fontSizeText};
+      transition: 0.8s;
 
       &:first-letter {
         font-size: ${fontSizeFirstLetter};
@@ -79,11 +80,11 @@ const SecondHomeWrapper = styled.div`
 
       &:hover {
         transform: scale(1.2);
-        transition: 0.8s;
         box-shadow: 0 0 20px green;
       }
     }
-  }`;
+  }
+`;
 const SimpleHomeWrapper = styled.div`
   h1 {
     color: red;
