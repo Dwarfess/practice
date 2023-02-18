@@ -1,6 +1,7 @@
 import { createElement } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
-
+import SettingsBlock from './SettingsBlock.jsx';
 import { colors, pageSize } from '../../styles.js';
 
 const {
@@ -10,35 +11,48 @@ const {
   thirdTextColor,
 } = colors;
 
-const ConstructorCanvas = (props) => {
+const ConstructorCanvas = ({ tagList, setTagList }) => {
+  const [currentBlock, setCurrentBlock] = useState(null);
+
+  const askSettingsBlock = (e) => {
+    const item = tagList.find((tag) => tag.id === e.target.id);
+    setCurrentBlock(item);
+  };
+
+  const resetTagList = (currentItem) => {
+    const items = tagList.map((tag) => {
+      if (currentItem.id !== tag.id) return tag;
+      const item = {
+        ...tag,
+        style: {
+          ...currentItem.style,
+        },
+      };
+      return item;
+    });
+
+    setTagList(items);
+    setCurrentBlock(currentItem);
+  };
   return (
     <CanvasWrapper>
-      {props.tagList.length ? (
-        // props.tagList.map((tag) =>
-        //   createElement(tag.name, { key: tag.id, style: tag.style, draggable:true}, tag.text)
-        // )
-        props.tagList.map((tag) => (
+      {currentBlock && (
+        <SettingsBlock
+          currentBlock={currentBlock}
+          setCurrentBlock={setCurrentBlock}
+          tagList={tagList}
+          resetTagList={resetTagList}
+        />
+      )}
+      {tagList.length ? (
+        tagList.map((tag) => (
           <tag.name
+            className='block'
             style={tag.style}
             draggable={true}
             key={tag.id}
-            onDragStart={(e) => {
-              console.log('start');
-            }}
-            onDragLeave={(e) => {
-              console.log('leave');
-            }}
-            onDragEnd={(e) => {
-              console.log('end');
-            }}
-            onDragOver={(e) => {
-              e.preventDefault();
-              console.log('over');
-            }}
-            onDrop={(e) => {
-              e.preventDefault();
-              console.log('Drop');
-            }}
+            id={tag.id}
+            onClick={askSettingsBlock}
           >
             {tag.text}
           </tag.name>
@@ -51,10 +65,10 @@ const ConstructorCanvas = (props) => {
 };
 
 const CanvasWrapper = styled.div`
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  position: relative;
+  .block {
+    position: absolute;
+  }
   h2 {
     color: ${firstTextColor};
     margin: 30px;

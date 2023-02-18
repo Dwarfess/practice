@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import styled from 'styled-components';
+import { tagItems } from './data.js';
 import ConstructorCanvas from './ConstructorCanvas.jsx';
 import ConstructorOptions from './ConstructorOptions.jsx';
 
@@ -11,40 +13,20 @@ const {
   thirdTextColor,
 } = colors;
 const { mainPageHight } = pageSize;
-const tagList = [
-  {
-    name: 'header',
-    style: { height: '50px', fontSize: '30px', padding: '10px', border: '2px solid blue' },
-    text: 'Block Header',
-    id: 1,
-  },
-  {
-    name: 'div',
-    style: { color: 'red' },
-    text: 'Block Content1',
-    id: 2,
-  },
-  {
-    name: 'div',
-    style: { color: 'green' },
-    text: 'Block Content2',
-    id: 3,
-  },
-  {
-    name: 'div',
-    style: { color: 'white', border: '2px solid black' },
-    text: 'Footer',
-    id: 4,
-  },
-];
+
+
 const ConstructorPage = (props) => {
+  const [tagList, setTagList] = useState(tagItems);
   return (
     <ConstructorPageWrapper>
       <h1>Constructor</h1>
 
       <div className="container">
         <div className="item constructorCanvas">
-          <ConstructorCanvas tagList={tagList}></ConstructorCanvas>
+          <ConstructorCanvas
+            tagList={tagList}
+            setTagList={setTagList}
+          ></ConstructorCanvas>
         </div>
 
         <div className="item constructorOptions">
