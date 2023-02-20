@@ -10,22 +10,20 @@ const ConstructorOptions = (props) => {
 
   let allTags = ['Header', 'main', 'left_aside', 'right_aside', 'footer', 'div', 'p', 'ul', 'li', 'ol', 'form']
 
-  allTags.forEach(itm => {
-    
+  const displayTag = allTags.map(item => {
+    return <option>{item}</option>       
   })
 
-  const [tags, setTags] = useState([]);
-  
+ function getActivTag(e) {
+ let selectedTag = e.target
+ return console.log(selectedTag)
+
+ }
+    
   return (
     <OptionsWrapper>
       <h2>Options</h2>
-
-      <select id="cars">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="opel">Opel</option>
-        <option value="audi">Audi</option>
-      </select>   
+      <select onChange={getActivTag}>{displayTag}</select>
     </OptionsWrapper>
   );
 };
