@@ -6,7 +6,11 @@ import { colors, pageSize } from '../../styles.js';
 
 const { firstTextColor, secondTextColor, secondBackgroundColor, thirdTextColor } = colors;
 const { mainPageHight } = pageSize;
+const tagList = [{
+  name: 'header',
+  style: {}
 
+}]
 const ConstructorPage = (props) => {
 
   return (
@@ -15,7 +19,7 @@ const ConstructorPage = (props) => {
 
         <div className='container'>
             <div className='item constructorCanvas'>
-                <ConstructorCanvas></ConstructorCanvas>
+                <ConstructorCanvas list={tagList}></ConstructorCanvas>
             </div>
 
             <div className='item constructorOptions'>

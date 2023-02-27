@@ -4,22 +4,23 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'semantic-ui-css/semantic.min.css'
-import styled, { createGlobalStyle } from 'styled-components';
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
 
-// const Global = createGlobalStyle `
-// * {background-image: url("/green_background.jpg");
-//     background-size: cover;
-//     width: 100%;
-//     height: 100%;
-    
-//   }`
+import { themeReducer } from './store/themeReducer';
+
+const rootReducer = combineReducers({
+  themes: themeReducer
+});
+const store = createStore(rootReducer);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    {/* <Global/> */}
-    <App />
-  </React.StrictMode>
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

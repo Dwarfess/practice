@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import styled, { createGlobalStyle } from 'styled-components';
 
 import { colors, fontSize, pageSize } from '../../styles.js';
@@ -15,7 +16,10 @@ const Home = ({ theme }) => {
     third: FirstHomeWrapper
   };
 
-  const HomeWrapper = themeMap[theme];
+  const theme1 = useSelector(state => {
+    return state.themes.theme
+  });
+  const HomeWrapper = themeMap[theme1];
 
   return (
     <HomeWrapper>

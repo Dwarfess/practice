@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Icon } from 'semantic-ui-react'
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 import { colors } from '../../styles.js';
 
@@ -10,6 +11,8 @@ const { firstTextColor, secondTextColor, firstBackgroudColor, secondBackgroundCo
 const ButtonsGroup = ({
     handlerTheme
 }) => {
+    const dispatch = useDispatch();
+
     useEffect(() => {
         const buttons = document.querySelectorAll('.ui.button i');
         buttons[0].classList.add('active');
@@ -34,6 +37,7 @@ const ButtonsGroup = ({
 
         e.target.classList.add('active');
         handlerTheme(e.target.getAttribute('data-name'));
+        dispatch({type: 'SET_THEME', payload: e.target.getAttribute('data-name')});
     }
 
     return (
